@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>秦皇岛岛主的react学习 第一个demo nested MessageBox</title>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+  <div id="app" />
+  <script type="text/babel">
+    var MessageBox=React.createClass({
+      alertMe:function(){
+        alert('你点了一下我')
+      },
+      render:function(){
+        var msgs=[]
+        for(var i=0;i<10;i++){
+          msgs.push(<SubMessage />)
+        }
+        return(
+          <div>
+            <h1>MessageBox</h1>
+            <hr />
+            {msgs}
+          </div>
+        )
+      }
+    });
+    var Footer=React.createClass({
+      render:function(){
+        return (<small>Foot small</small>)
+      }
+    });
+    var SubMessage=React.createClass({
+      render:function(){
+        return(
+          <div>
+            <h3>Sub Message</h3>
+            <Footer />
+          </div>
+        )
+      }
+    });
+    ReactDOM.render(
+      <MessageBox />,
+      document.getElementById('app')
+    )
+  </script>
+</body>
+</html>

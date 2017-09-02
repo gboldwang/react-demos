@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>秦皇岛岛主的react学习 第一个demo hello world</title>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+  <div id="app" />
+  <script type="text/babel">
+    var MessageBox=React.createClass({
+      alertMe:function(){
+        alert('你点了一下我')
+      },
+      render:function(){
+        return(<h1 onClick={this.alertMe}>hello world</h1>)
+      }
+    });
+    ReactDOM.render(
+      <MessageBox />,
+      document.getElementById('app')
+    )
+  </script>
+</body>
+</html>

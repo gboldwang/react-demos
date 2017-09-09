@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>秦皇岛岛主的react学习 第一个demo nested MessageBox</title>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+  <div id="app" />
+  <script type="text/babel">
+	var MessageBox=React.createClass({
+		getInitialState:function(){
+			return{
+				products:['DFR0001','DFR0002','DFR0003']
+			}
+		},
+		handleClick:function(){
+			this.setState({counter:this.state.counter+1})
+		},
+		render:function(){
+			var msgs=['111','222','333'];
+			return(
+				<div>
+					<h1>{this.props.title}</h1>
+					<SubMessageBox messages={this.state.products} />
+				</div>
+		)
+		}
+	});
+	var SubMessageBox=React.createClass({
+		render:function(){
+			var msgs=[]
+			this.props.messages.forEach(function(msg, index){
+				msgs.push(<p>产品{index} : {msg}</p>)
+			})
+			return (
+				<h2>{msgs}</h2>
+			)
+		}
+	});
+	ReactDOM.render(
+		<MessageBox title="DFRobot产品研发部"/>,
+		document.getElementById('app')
+	)
+  </script>
+</body>
+</html>
